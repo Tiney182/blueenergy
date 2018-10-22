@@ -20,17 +20,18 @@ import com.blueenergy.application.service.PresentMeterResponseService;
 @RequestMapping("/api")
 public class ApplicationRestController {
 
-  @Autowired private CustomerRepository customerRepository;
-
+  private CustomerRepository customerRepository;
   private MeterRequestService meterRequestService;
   private PresentMeterResponseService presentMeterResponseService;
 
   @Autowired
   public ApplicationRestController(
+      final CustomerRepository customerRepository,
       final MeterRequestService meterRequestService,
       final PresentMeterResponseService presentMeterResponseService) {
     this.meterRequestService = meterRequestService;
     this.presentMeterResponseService = presentMeterResponseService;
+    this.customerRepository = customerRepository;
   }
 
   @RequestMapping(method = RequestMethod.GET, produces = "application/json")

@@ -9,16 +9,16 @@ import com.blueenergy.application.dao.CustomerDaoImpl;
 public class CustomerIdentifierValidator {
 
   private CustomerDaoImpl customerDao;
-  
+
   @Autowired
   public CustomerIdentifierValidator(final CustomerDaoImpl customerDao) {
     this.customerDao = customerDao;
   }
-  
+
   public boolean validateCustomer(String customerId) {
     try {
       customerDao.getCustomer(customerId);
-    } catch(NoSuchElementException e) {
+    } catch (NoSuchElementException e) {
       return false;
     }
     return true;

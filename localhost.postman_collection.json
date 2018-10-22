@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "2b02815b-4170-4ddd-9b4a-75d2504a72b6",
+		"name": "localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createCustomer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "fuckyeah"
+				},
+				"url": {
+					"raw": "localhost:8080/api/create?customerId=identifier123",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"create"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "identifier123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submitGasMeterRead",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"identifier123\",\r\n    \"serialNumber\": \"27263927192\",\r\n    \"mpxn\": \"12345678912\",\r\n    \"read\": [\r\n        {\"type\": \"ANYTIME\", \"registerId\": \"387373\", \"value\": \"2729\"},\r\n        {\"type\": \"NIGHT\", \"registerId\": \"387373\", \"value\": \"2892\"}\r\n    ],\r\n    \"readDate\": \"2017-11-20T16:19:48\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/meter-read",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"meter-read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submitElectricMeterRead",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"identifier123\",\r\n    \"serialNumber\": \"27263927192\",\r\n    \"mpxn\": \"123456789123456789122\",\r\n    \"read\": [\r\n        {\"type\": \"ANYTIME\", \"registerId\": \"387373\", \"value\": \"2729\"},\r\n        {\"type\": \"NIGHT\", \"registerId\": \"387373\", \"value\": \"2892\"}\r\n    ],\r\n    \"readDate\": \"2017-11-20T16:19:48+00:00\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/meter-read",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"meter-read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submitInvalidMeterRead",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"identifier123\",\r\n    \"serialNumber\": \"27263927192\",\r\n    \"mpxn\": \"123456789123456789122\",\r\n    \"read\": [\r\n        {\"type\": \"ANYTIME\", \"registerId\": \"387373\", \"value\": \"2729\"},\r\n        {\"type\": \"NIGHT\", \"registerId\": \"387373\", \"value\": \"2892\"}\r\n    ],\r\n    \"readDate\": \"2017-11-20T16:19:48\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/meter-read",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"meter-read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getReadings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/?customerId=identifier123",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "identifier123"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

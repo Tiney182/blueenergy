@@ -20,7 +20,7 @@ public class Reading {
   private Integer registerId;
   private Integer value;
   private Date readDate;
-  
+
   public Reading() {}
 
   public Reading(

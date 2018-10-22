@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication()
 @EnableJpaRepositories("com.blueenergy.application.repository")
-
 public class MeterReadApplication {
 
   public static void main(String[] args) {
