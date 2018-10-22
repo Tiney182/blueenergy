@@ -1,10 +1,10 @@
 package com.blueenergy.application.reading;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 public class MeterRequest {
 
@@ -13,16 +13,15 @@ public class MeterRequest {
   private BigDecimal mpxn;
   private List<MeterRead> read;
 
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-  private LocalDate readDate;
+  @DateTimeFormat(iso = ISO.DATE_TIME)
+  private Date readDate;
 
   public MeterRequest(
       String customerId,
       BigDecimal serialNumber,
       BigDecimal mpxn,
       List<MeterRead> read,
-      LocalDate readDate) {
+      Date readDate) {
     super();
     this.customerId = customerId;
     this.serialNumber = serialNumber;
@@ -63,11 +62,11 @@ public class MeterRequest {
     this.read = read;
   }
 
-  public LocalDate getReadDate() {
+  public Date getReadDate() {
     return readDate;
   }
 
-  public void setReadDate(LocalDate readDate) {
+  public void setReadDate(Date readDate) {
     this.readDate = readDate;
   }
 }

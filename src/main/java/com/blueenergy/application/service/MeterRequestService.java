@@ -2,7 +2,6 @@ package com.blueenergy.application.service;
 
 import java.net.URISyntaxException;
 import java.util.List;
-import javax.persistence.GeneratedValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +38,10 @@ public class MeterRequestService {
       throws URISyntaxException {
     boolean doesCustomerExist = customerValidator.validateCustomer(meterRequest.getCustomerId());
     if (doesCustomerExist == false) {
-      ResponseEntity<String> responseEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+      ResponseEntity<String> responseEntity =
+          new ResponseEntity<>(
+              "Customer with Id" + meterRequest.getCustomerId() + " does not exist",
+              HttpStatus.BAD_REQUEST);
       return responseEntity;
     }
 
@@ -52,7 +54,7 @@ public class MeterRequestService {
 
     saveMeter(meterRequest, meterType);
     saveReading(meterRequest);
-    
+
     return new ResponseEntity<>(HttpStatus.OK);
   }
 

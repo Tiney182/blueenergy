@@ -1,7 +1,7 @@
 package com.blueenergy.application.entities;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +19,9 @@ public class Reading {
   private String readType;
   private Integer registerId;
   private Integer value;
-  private LocalDate readDate;
+  private Date readDate;
+  
+  public Reading() {}
 
   public Reading(
       BigDecimal mpxn,
@@ -27,14 +29,14 @@ public class Reading {
       String readType,
       Integer registerId,
       Integer value,
-      LocalDate readDate) {
+      Date date) {
     super();
     this.mpxn = mpxn;
     this.customerId = customerId;
     this.readType = readType;
     this.registerId = registerId;
     this.value = value;
-    this.readDate = readDate;
+    this.readDate = date;
   }
 
   public BigDecimal getMpxn() {
@@ -77,11 +79,11 @@ public class Reading {
     this.value = value;
   }
 
-  public LocalDate getReadDate() {
+  public Date getReadDate() {
     return readDate;
   }
 
-  public void setReadDate(LocalDate readDate) {
+  public void setReadDate(Date readDate) {
     this.readDate = readDate;
   }
 }
